@@ -1,0 +1,127 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    padding-block: clamp(1rem, 1.5vw, 1.5rem);
+    padding-inline: clamp(1.5rem, 6vw, 6rem);
+
+    background: var(--surface);
+    color: var(--foreground);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    flex-shrink: 0;
+
+    color: inherit;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+.navLink {
+    position: relative;
+
+    padding-block: 0.5rem;
+
+    color: var(--foreground);
+    font-size: clamp(0.875rem, 1.1vw, 1rem);
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+    color: var(--accent);
+}
+
+.navLink:first-child {
+    color: var(--accent);
+}
+
+.navLink:first-child::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 2px;
+    background: var(--accent);
+    content: "";
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1vw, 1rem);
+}
+
+.language {
+    padding: 0.625rem 0.875rem;
+
+    border: 1px solid var(--border);
+    border-radius: 0.625rem;
+
+    background: var(--surface);
+    color: var(--foreground);
+    font: inherit;
+    cursor: pointer;
+}
+
+.language option {
+    background: var(--surface);
+    color: var(--foreground);
+}
+
+@media (max-width: 64rem) {
+    .header {
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 40rem) {
+    .header {
+        padding-inline: 1.25rem;
+    }
+
+    .nav {
+        justify-content: flex-start;
+        gap: 1.25rem;
+        overflow-x: auto;
+    }
+
+    .navLink {
+        flex-shrink: 0;
+    }
+
+    .actions {
+        margin-left: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navLink {
+        transition: none;
+    }
+}

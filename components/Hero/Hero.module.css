@@ -1,0 +1,173 @@
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+
+    padding-block: clamp(4rem, 10vw, 8rem);
+    padding-inline: clamp(1.5rem, 6vw, 6rem);
+
+    background: var(--background);
+    color: var(--foreground);
+}
+
+.content {
+    max-width: 42rem;
+}
+
+.eyebrow {
+    margin: 0 0 1.5rem;
+    color: var(--accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.title {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.title span {
+    display: block;
+    color: var(--accent);
+}
+
+.description {
+    max-width: 34rem;
+    margin-block: 1.5rem 2rem;
+    color: var(--text-muted);
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.7;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.primaryButton,
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.875rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.625rem;
+
+    font-size: 0.9375rem;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.primaryButton {
+    background: var(--accent);
+    color: var(--accent-foreground);
+}
+
+.primaryButton:hover {
+    background: var(--accent-bright);
+}
+
+.secondaryButton {
+    border-color: var(--border);
+    color: var(--foreground);
+}
+
+.secondaryButton:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    margin-top: 3rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.visual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+
+    min-width: 0;
+    min-height: 24rem;
+    padding: clamp(1.5rem, 3vw, 3rem);
+
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            color-mix(in srgb, var(--accent) 14%, transparent) 0,
+            transparent 45%
+        ),
+        var(--surface);
+}
+
+.visualLabel {
+    color: var(--accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+}
+
+.codeCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+
+    background: var(--background);
+    color: var(--text-muted);
+
+    font-family: monospace;
+    font-size: clamp(0.75rem, 1.1vw, 0.9375rem);
+    line-height: 1.5;
+}
+
+@media (max-width: 64rem) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .visual {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 40rem) {
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .skills {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .primaryButton,
+    .secondaryButton {
+        transition: none;
+    }
+}
